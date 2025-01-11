@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" footer="width=device-width, initial-scale=1.0">
+    <title>FishModLoader的介绍</title>
+    <link rel="icon" href="/files/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div id="header"></div>
+    <script>
+        fetch("/pages/header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+
+    <h1>FishModLoader</h1>
+
+    <hr>
+
+    <p>
+        MITE的模组通过<a href="https://github.com/XiaoYuOvO/FishModLoader">FishModLoader</a>加载. 可称为小鱼模组加载器, 也可称为FML.
+    </p>
+
+    <p>
+        它在3.0.0版本之前, 以类似<a href="https://www.mcmod.cn/class/30.html">Forge</a>的形式进行开发, 在3.0.0时进行了代码重构, 成为类<a
+            href="https://www.mcmod.cn/class/1411.html">Fabric</a>的加载器, 它们有以下区别:
+
+    <table>
+        <tr>
+            <td></td>
+            <td>混淆表</td>
+            <td>开发环境</td>
+            <td>接口数</td>
+            <td>兼容性</td>
+            <td>大型模组数</td>
+            <td>小型模组数</td>
+            <td>社区</td>
+        </tr>
+        <tr>
+            <td>FML1</td>
+            <td>自研</td>
+            <td>导出类</td>
+            <td>少</td>
+            <td>差</td>
+            <td>多</td>
+            <td>少</td>
+            <td>几乎消失</td>
+        </tr>
+        <tr>
+            <td>FML3</td>
+            <td>Forge映射</td>
+            <td>Loom环境</td>
+            <td>多</td>
+            <td>好</td>
+            <td>少</td>
+            <td>多</td>
+            <td>未来可期</td>
+        </tr>
+    </table>
+
+    </p>
+
+    <p>
+        因此, 如果你有志于Mite模组开发, 请务必选择FML3. 联系我们, 以获取细致的指导.
+    </p>
+
+    <hr>
+
+    <div id="footer"></div>
+
+    <script>
+        fetch("/pages/footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+    </script>
+</body>
+
+</html>
