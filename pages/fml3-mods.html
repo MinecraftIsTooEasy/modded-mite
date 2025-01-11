@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FML3的模组</title>
+    <link rel="icon" href="/files/icon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div id="header"></div>
+    <script>
+        fetch("/pages/header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+    <h1>FML3的模组</h1>
+
+    <hr>
+
+    <p>
+
+        页面仍待补充.
+
+    <table id="modTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">英文名<span class="sort-indicator" id="sort-indicator-0">⏵</span>
+                    <span class="tooltip">排序</span>
+                </th>
+                <th onclick="sortTable(1)">中文名<span class="sort-indicator" id="sort-indicator-1">⏵</span>
+                    <span class="tooltip">排序</span>
+                </th>
+                <th onclick="sortTable(2)">前置需求<span class="sort-indicator" id="sort-indicator-2">⏵</span>
+                    <span class="tooltip">排序</span>
+                </th>
+                <th onclick="sortTable(3)">端<span class="sort-indicator" id="sort-indicator-3">⏵</span>
+                    <span class="tooltip">排序</span>
+                </th>
+                <th onclick="sortTable(4)">简介<span class="sort-indicator" id="sort-indicator-4">⏵</span>
+                    <span class="tooltip">排序</span>
+                </th>
+                <th onclick="sortTable(5)">链接<span class="sort-indicator" id="sort-indicator-5">⏵</span>
+                    <span class="tooltip">排序</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>RustedIronCore</td>
+                <td>锈铁核心</td>
+                <td></td>
+                <td>双端</td>
+                <td>类Fabric API的模组, 为其它模组提供了一些基本的事件, 钩子等.</td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/RustedIronCore">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>ManyLib</td>
+                <td>很多库</td>
+                <td></td>
+                <td>双端</td>
+                <td>仿制MaLiLib的模组, 提供了简单的配置和配置屏幕.</td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/ManyLib">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>Baubles</td>
+                <td>饰品栏</td>
+                <td></td>
+                <td>双端</td>
+                <td>同名模组向MITE的移植.</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>ServerPassword-MITE</td>
+                <td>服务端登录密码</td>
+                <td></td>
+                <td>服务端</td>
+                <td>玩家进服应输入'/setpwd'设置密码, 之后进服用'/login'输入密码</td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/ServerPassword-MITE">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>MITE-Neodymium</td>
+                <td>钕</td>
+                <td>ManyLib</td>
+                <td>客户端</td>
+                <td>强力的帧数优化模组</td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/MITE-Neodymium">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>MITE-ITE</td>
+                <td></td>
+                <td>RustedIronCore</td>
+                <td>双端</td>
+                <td></td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/MITE-ITE">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>ShadersModCore</td>
+                <td>光影核心</td>
+                <td></td>
+                <td>客户端</td>
+                <td></td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/ShadersModCore">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>HWITE</td>
+                <td></td>
+                <td>ManyLib</td>
+                <td>客户端</td>
+                <td>显示光标处方块, 实体的信息</td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/HWITE">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>ExtraGui</td>
+                <td></td>
+                <td>ManyLib</td>
+                <td>客户端</td>
+                <td>额外的界面, 包括但不限于以下内容: 类F3的信息, 装备耐久显示, 物品栏中放大显示</td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/ExtraGui">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>Font-Fixer</td>
+                <td>字体修复</td>
+                <td></td>
+                <td>客户端</td>
+                <td>修复了字体的缩放问题</td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/Font-Fixer">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>SMP-Commands</td>
+                <td></td>
+                <td></td>
+                <td>双端</td>
+                <td>传送命令等, 支持多语言</td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/SMP-Commands">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>EMI-MITE</td>
+                <td></td>
+                <td></td>
+                <td>双端</td>
+                <td>这是著名的<a href="https://www.mcmod.cn/class/6630.html">EMI</a>在MITE的移植.</td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/EMI-MITE">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>mite-freelook</td>
+                <td>自由视角</td>
+                <td>ManyLib</td>
+                <td>客户端</td>
+                <td></td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/mite-freelook">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>ITF-Reborn</td>
+                <td></td>
+                <td>ManyLib, RustedIronCore</td>
+                <td>双端</td>
+                <td></td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/ITF-Reborn">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>BetterGameSetting</td>
+                <td></td>
+                <td>ManyLib</td>
+                <td>客户端</td>
+                <td>将1.7+的设置界面带回MITE</td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/BetterGameSetting">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>Fancy-Toys</td>
+                <td></td>
+                <td>ManyLib</td>
+                <td>双端</td>
+                <td>一些花哨的功能, 可通过配置了解</td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/Fancy-Toys">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>Bread-Skin</td>
+                <td></td>
+                <td>ManyLib, RustedIronCore(可选)</td>
+                <td>客户端</td>
+                <td>饱和度显示(支持多种形式), 以及对MITE营养值的显示</td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/Bread-Skin">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>CursedRing</td>
+                <td>七咒之戒</td>
+                <td>ManyLib, RustedIronCore, Baubles</td>
+                <td>双端</td>
+                <td>仅实现了<a href="https://www.mcmod.cn/class/2239.html">神秘遗物</a>中的七咒之戒.</td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/CursedRing">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>ExpBaubles</td>
+                <td>经验戒指</td>
+                <td>Baubles</td>
+                <td>双端</td>
+                <td><a href="https://github.com/limingzxc">黎明</a>制作的饰品模组, 本模组的饰品特色在于会不断扣除或一次性扣除经验.</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>GA-Higher</td>
+                <td>娱乐新视野</td>
+                <td>ManyLib, RustedIronCore, MITE-ITE</td>
+                <td>双端</td>
+                <td>MITE-ITE的附属模组, 加入了俗称"新娱乐"的模组中的部分内容, 另外移植了"极难"模组的管道岩浆, 商店等内容.</td>
+                <td><a href="https://github.com/MinecraftIsTooEasy/GA-Higher">GitHub</a></td>
+            </tr>
+            <tr>
+                <td>ModernMite</td>
+                <td>现代化MITE</td>
+                <td>ManyLib</td>
+                <td>双端</td>
+                <td>实现了许多现代mc的特性, 另外提供了一些修复.</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        let currentSortColumn = -1; // 当前排序的列索引
+        let currentSortOrder = 'none'; // 当前排序顺序
+
+        const table = document.getElementById("modTable");
+        const originalRows = Array.from(table.rows).slice(1);
+
+        function sortTable(columnIndex) {
+            const rows = Array.from(table.rows).slice(1);
+
+            // 检查当前列是否是已排序列
+            if (currentSortColumn === columnIndex) {
+                // 如果是已排序列，检查当前排序顺序
+                if (currentSortOrder === 'asc') {
+                    // 当前是升序，切换到降序
+                    currentSortOrder = 'desc';
+                } else if (currentSortOrder === 'desc') {
+                    // 当前是降序，恢复原始顺序
+                    currentSortOrder = 'none';
+                } else if (currentSortOrder === 'none') {
+                    currentSortOrder = 'asc';
+                }
+            } else {
+                // 如果是新的列，设置为升序
+                currentSortColumn = columnIndex;
+                currentSortOrder = 'asc';
+            }
+
+            // 排序逻辑
+            if (currentSortOrder === 'asc') {
+                rows.sort((rowA, rowB) => {
+                    const cellA = rowA.cells[columnIndex].innerText;
+                    const cellB = rowB.cells[columnIndex].innerText;
+
+                    return cellA.localeCompare(cellB); // 字符串排序
+
+                });
+            } else if (currentSortOrder === 'desc') {
+                rows.sort((rowA, rowB) => {
+                    const cellA = rowA.cells[columnIndex].innerText;
+                    const cellB = rowB.cells[columnIndex].innerText;
+
+                    return cellB.localeCompare(cellA); // 字符串排序
+
+                });
+            } else if (currentSortOrder === 'none') {
+                // TODO 恢复原顺序
+            }
+
+            // 更新表格
+            rows.forEach(row => table.tBodies[0].appendChild(row));
+
+            // 更新排序指示器
+            updateSortIndicators();
+        }
+
+        function updateSortIndicators() {
+            const indicators = document.querySelectorAll('.sort-indicator');
+            indicators.forEach((indicator, index) => {
+                if (index === currentSortColumn) {// 当前排序列
+                    switch (currentSortOrder) {
+                        case 'asc':
+                            indicator.innerHTML = '▲';
+                            break;
+                        case 'desc':
+                            indicator.innerHTML = '▼';
+                            break;
+                        default:
+                            indicator.innerHTML = '⏵';
+                    }
+                } else {
+                    indicator.innerHTML = '⏵'; // 其他列的复合符号
+                }
+            });
+        }
+    </script>
+
+
+
+    </p>
+
+    <hr>
+
+    <div id="footer"></div>
+
+    <script>
+        fetch("/pages/footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+    </script>
+</body>
+
+</html>
