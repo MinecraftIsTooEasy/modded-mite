@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>锈铁核心开发文档</title>
+    <link rel="icon" href="/files/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div id="header"></div>
+    <script>
+        fetch("/pages/header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+
+    <p>
+        本库提供的内容, 从使用方法大概分为以下几类:
+    </p>
+
+    <h2>公共父类</h2>
+
+    <p>如<code>DoorBlock, PaneBlock, WorkbenchBlock</code>等.</p>
+    <p>这些方块, 物品的注册较为复杂, 涉及对源码的大量修改.</p>
+    <p>因此提供这些父类, 只要你继承它们, 就不必自己编写冗杂的Mixin.</p>
+
+    <h2>公共接口</h2>
+
+    <p>如<code>IArmorMaterial, IBowMaterial, IRockItem</code>等.</p>
+    <p>这些接口通常代表物品实现了某些性质, 同上也是对冗杂Mixin的包装.</p>
+
+    <h2>事件监听</h2>
+
+    <p>本模组的大部分功能由事件系统构成, 事件调度器的实例都在<code>Handlers</code>类中.</p>
+    <p>调用者只需在模组入口点往此类中的调度器调用<code>register</code>方法, 并实现相应的接口.</p>
+    <p>这些调度器分为两类, 一次事件和多次事件.</p>
+    <p>一次事件通常是游戏对象的注册, 如合成配方, 熔炉配方, 村民交易项目的注册.</p>
+    <p>这些事件的调度器继承了<code>AbstractHandler&lt;Consumer&lt;T&gt;&gt;</code>, 你需要提供一个<code>Consumer&lt;T&gt;</code>来"消耗"事件.
+    </p>
+    <p>多次事件则处理一些游戏逻辑, 如熔炉燃烧, 沙砾掉落.</p>
+    <p>这些事件的调度器则直接继承<code>AbstractHandler&lt;T&gt;</code>, 你需要提供一个监听器.</p>
+
+
+
+    <hr>
+
+    <div id="footer"></div>
+
+    <script>
+        fetch("/pages/footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+    </script>
+</body>
+
+</html>
