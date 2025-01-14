@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MITE资源包使用方式</title>
+    <link rel="icon" href="/files/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div id="header"></div>
+    <script>
+        fetch("/pages/header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+
+    <h2>
+        若未安装Better Game Setting模组
+    </h2>
+
+    <p>
+        0.确保你的文件扩展名已设置为显示（很多很多很多人重命名为MITE Resource Pack 1.6.4.zip.zip）
+    </p>
+    <p>
+        1.下载你要的材质包
+    </p>
+    <p>
+        2.将你下好的材质包重命名为MITE Resource Pack 1.6.4.zip
+    </p>
+    <p>
+        3.将这个压缩包放进MITE游戏目录的材质包文件夹中：MITE文件夹/.minecraft/resourcepacks/
+    </p>
+    <p>
+        4.启动MITE，如果能进入游戏说明安装成功。
+    </p>
+
+    <h2>
+        若安装Better Game Setting模组
+    </h2>
+
+    <p>
+        1.直接将压缩包放进MITE游戏目录的材质包文件夹中：MITE文件夹/.minecraft/resourcepacks/
+    </p>
+    <p>
+        2.启动游戏,游戏设置->资源包->选择刚才放入的资源包
+    </p>
+
+    <hr>
+
+    <div id="footer"></div>
+
+    <script>
+        fetch("/pages/footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+    </script>
+</body>
+
+</html>
