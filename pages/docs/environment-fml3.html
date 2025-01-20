@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FML3搭建环境</title>
+    <link rel="icon" href="/files/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div id="header"></div>
+    <script>
+        fetch("/pages/header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+
+    <h1>环境搭建</h1>
+
+    <hr>
+
+    <h2>IDEA设置篇</h2>
+
+    <ol class="enumeration-list">
+        <li>下载软件IntelliJ IDEA, 社区版足够, 不必购买专业版. </li>
+        <li>进入IDEA, 找到设置, 插件市场, 下载<span>Minecraft Development Kit</span>, 如有需要, 还可以下载一些汉化插件.</li>
+        <li>因为我们开发需要的库很多需要从国外下载, 配置一个网络代理是必不可少的.</li>
+        <li>配置方法有很多, 如果你已经掌握, 直接跳过本节即可.</li>
+        <li>现在假定你已经配置好了系统代理, 我们下面开始配置IDEA的代理.</li>
+        <li>按下Win+I, 进入网络, 代理, 查看地址与端口, 记录下来. </li>
+        <li>进入IDEA, 设置, 代理, 选择手动代理并填入上一步中的地址与端口.</li>
+        <li>现在你的IDEA应该能够使用代理运行项目了.</li>
+    </ol>
+
+    <hr>
+
+    <h2>文件准备篇</h2>
+
+
+    <ol class="enumeration-list">
+        <li>
+            下载并安装Java17, 并配置环境变量. 且你需要知晓安装的路径. 此步可根据网络上的教程.
+        </li>
+        <li>
+            在<span class="copy-code">C:\Users\用户名\.m2</span>新建名为<span class="copy-code">repository</span>的文件夹.
+        </li>
+        <li>
+            按下Win+R, 输入<span class="copy-code">%USERPROFILE%/.m2/repository</span>检查是否创建成功.
+        </li>
+        <li>
+            下载<a href="https://github.com/XiaoYuOvO/fml-loom/releases/download/0.1/fml-loom-0.1.local-repo.zip">
+                fml-loom-0.1.local-repo.zip
+            </a>, 解压到刚才创建的目录. 检查是否多嵌套了文件夹, 我们的文件树结构应该类似如下:
+
+            <ul class="file-tree">
+                <li class="file-folder">repository
+                    <ul>
+                        <li class="file-folder">fml-loom</li>
+                        <li class="file-folder">net</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>获取最新的FishModLoader的jar文件, 保存到适宜的目录中.</li>
+        <li>获取MITE核心的jar文件(例如自行文件覆盖, 或下载某一客户端并提取), 暂时备用.</li>
+        <li>获取MITE的资源包, 暂时备用.</li>
+    </ol>
+
+    <hr>
+
+    <h2>项目构建篇</h2>
+
+    <ol class="enumeration-list">
+        <li>找到任意FML3的项目, 例如从<a href="https://github.com/orgs/MinecraftIsTooEasy/repositories">组织项目库</a>下载.</li>
+        <li>用IDEA打开其中的<code>build.gralde</code>文件. 这是项目的构建脚本, 我们能否运行起项目的关键.</li>
+        <li>打开后项目应该会自动开始构建, 等待片刻.</li>
+        <li>若成功构建, 可直接跳过本节</li>
+        <li>你可能会遇到以下问题:
+            <ul class="cases-list">
+                <li>Java版本过低(例如8), 进入设置, 项目结构, 将SDK和语言水平设为17.</li>
+                <li>FishModLoader目录不对, 进入构建脚本, 将相关路径改为你在上节准备的.</li>
+                <li>找不到MITE.jar文件, 根据报错给的目录, 将你在上节准备的文件移动过去.</li>
+                <li>缺少库, 这可能是你拿到的项目有一些自定义的前置, 例如ManyLib等. 想办法下载相关文件, 并将构建脚本中相关路径设为你的.</li>
+            </ul>
+        </li>
+        <li>以防你不知道, 可以双击Ctrl, 输入<span class="copy-code">gradle build</span>以重新构建项目.</li>
+    </ol>
+
+    <hr>
+
+    <h2>项目运行篇</h2>
+
+    <ol class="enumeration-list">
+        <li>在右边侧栏中, 可以找到gradle. 运行任务都在其中.</li>
+        <li>在Tasks build中, 有jar和sourcesJar, 前者编译出给用户的模组, 后者是源代码可供阅读.</li>
+        <li>在Tasks fml中, 有runClient和runServer, 用以运行客户端和运行服务器.</li>
+        <li>运行客户端时, 如遇主菜单的缺少资源包警告, 将你在上上节准备的资源包移入项目的run文件夹中适宜位置.</li>
+        <li>还有genSources, 可以生成mc的源码, 这里需注意genSources时要关闭所有关于源码的标签页.</li>
+    </ol>
+
+    <hr>
+
+    <h2>项目编写篇</h2>
+
+    <p>这里是一些项目编写的技巧, 只讲大概流程, 具体代码编写请参考相关的项目.</p>
+
+    <ol class="enumeration-list">
+        <li>引入依赖模组的流程: 在构建脚本的dependencies块中使用implementation即可. 在runClient时这些模组也会参与.</li>
+        <li>如果你只想用来编译而不想运行模组依赖, 将implementation改成compileOnly.</li>
+        <li>若以同样的方式引入sources文件, 则能看到源码, 且查找用法等功能也能使用.</li>
+        <li>访问加宽(accessWidener)需要在构建脚本和fml.mod.json中都指定. 前者在开发环境, 而后者在用户环境.</li>
+        <li>在Fabric-like的环境中, 大部分功能要自己修改mc代码实现. 我们通过Mixin系统实现这个操作.</li>
+    </ol>
+
+    <hr>
+
+    <div id="footer"></div>
+
+    <script>
+        fetch("/pages/footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+    </script>
+
+    <script src="/scripts/copy-code.js"></script>
+</body>
+
+</html>
