@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资源导航</title>
+    <link rel="icon" href="/files/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+<div id="header"></div>
+<script>
+    fetch("/pages/header.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+        });
+</script>
+
+<h1>资源包</h1>
+
+<p>
+    MITE默认只能默认选择<b>MITE Resource Pack 1.6.4</b>文件夹或zip压缩包, 可使用<a href="https://github.com/MinecraftIsTooEasy/BetterGameSetting">Better
+    GameSetting</a>模组可自由切换资源包.
+</p>
+
+<p>
+    若你的游戏缺少资源包, 请从以下链接下载:
+</p>
+
+<ul class="inline-cases-list">
+    <li>
+        <a href="https://cdn.jsdelivr.net/gh/MinecraftIsTooEasy/minecraftistooeasy.github.io@main/files/resourcepacks/%5B16x%5DMITE%E6%96%B0%E8%AF%91%E5%8E%9F%E7%89%88%E8%B5%84%E6%BA%90%E5%8C%85.zip">
+            MITE新译资源包(代理)
+        </a>
+    </li>
+    <li>
+        <a href="/files/resourcepacks/%5B16x%5DMITE%E6%96%B0%E8%AF%91%E5%8E%9F%E7%89%88%E8%B5%84%E6%BA%90%E5%8C%85.zip">
+            MITE新译资源包(直链)
+        </a>
+    </li>
+</ul>
+
+<p><s>
+    更多资源包下载敬请期待
+</s></p>
+
+<p>
+    <a href="/pages/resource-pack-usage.html">资源包使用方式</a>.
+</p>
+
+<hr>
+
+<h1>模组</h1>
+
+<p>
+    MITE绝大多数模组通过<a href="https://github.com/XiaoYuOvO/FishModLoader">FishModLoader</a>加载. 可称为小鱼模组加载器, 也可称为FML.
+    <a href="/pages/about-fml.html">简短的介绍</a>
+</p>
+
+<ul class="inline-cases-list">
+    <li>
+        FML3+的模组: <a href="/pages/fml3-mods.html">链接</a>
+
+    </li>
+    <li>
+        FML1-的模组: <a href="/pages/fml1-mods.html">链接</a>
+    </li>
+</ul>
+
+<hr>
+
+<h1>资源整合</h1>
+
+<p>密码(提取码)均为"mite".</p>
+
+<ul class="inline-cases-list">
+    <li>
+        <a href="https://www.123pan.com/s/ql9fjv-sNWx.html">新资源整合主链接(123云盘)</a>
+    </li>
+    <li>
+        <a href="https://drive.google.com/drive/folders/1xg9NGwlPZ9Pex_DgDq-dzzuf6wL9kfBJ?usp=sharing">新资源整合阉割版(谷歌云盘)</a>
+    </li>
+    <li>
+        <a href="https://pan.huang1111.cn/s/A68xghB">地精科技站资源备份(huang1111云盘)</a>
+    </li>
+</ul>
+
+<hr>
+
+<div id="footer"></div>
+
+<script>
+    fetch("/pages/footer.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer').innerHTML = data;
+        });
+</script>
+</body>
+
+</html>

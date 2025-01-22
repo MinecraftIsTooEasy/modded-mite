@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ManyLib开发文档</title>
+    <link rel="icon" href="/files/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div id="header"></div>
+    <script>
+        fetch("/pages/header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+
+    <h2>如何从文件读写配置</h2>
+
+    <ul class="cases-list">
+        <li>实现一个<code>IConfigHandler</code>, 然后调用<code>save</code>或<code>load</code>即可.</li>
+        <li>你可以通过继承<code>SimpleConfigs</code>来实现. 这是一个模板.</li>
+    </ul>
+
+
+    <h2>如何在ManyLib菜单中加入我的模组</h2>
+
+    <ul class="cases-list">
+        <li>调用<code>ConfigManager.getInstance().register()</code>以注册你的配置. </li>
+        <li>你的配置对象的<code>.getValues()</code>和<code>.getHotkeys()</code>不应该都为<code>null</code>,否则我们会忽略你的模组.</li>
+    </ul>
+
+
+    <h2>如何在ManyLib菜单中重定向我的模组的配置Gui</h2>
+
+    <ul class="cases-list">
+        <li>覆写<code>IConfigHandler.getConfigScreen()</code>方法即可.</li>
+    </ul>
+
+
+    <h2>如何在配置Gui中加入多个标签页</h2>
+
+    <ul class="cases-list">
+        <li>覆写<code>IConfigHandler.getConfigTabs()</code>方法即可.</li>
+    </ul>
+
+
+    <h2>如何加双语</h2>
+
+    <p>
+        我们建议你在每个配置项注册时, 名字前加入你的模组的命名空间. 这样能够避免多个模组的同名配置起冲突.
+    </p>
+
+    <p>
+        你可以观察本模组的lang(语言文件)来学习如何编写自己的lang.
+    </p>
+
+    <ul class="cases-list">
+        <li>配置名的翻译键为<code>config.name.xxx</code></li>
+        <li>配置的提示需要<code>config.comment.xxx</code></li>
+        <li><code>ConfigEnum</code>的展示名需要<code>config.enum.xxx.yyy</code>, 其中<code>xxx</code>是配置名称,
+            <code>yyy</code>是每个枚举对象的名称
+        </li>
+        <li>标签页的名称需要<code>config.tab.xxx</code> </li>
+    </ul>
+
+
+    <h2>comment中我要换行怎么办</h2>
+
+    <p>
+        基本上本模组有自动换行的算法, 但当它不起效时, 你可以用<code>\n</code>强制换行.
+    <p>
+
+
+    <hr>
+
+    <div id="footer"></div>
+
+    <script>
+        fetch("/pages/footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+    </script>
+</body>
+
+</html>
